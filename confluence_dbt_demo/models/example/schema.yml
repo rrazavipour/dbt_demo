@@ -2,20 +2,36 @@
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: stg_orders
+    description: This model describes order data
+    columns:
+    - name: OrderID
+    - name: EmployeeID
+    - name: OrderDate
+    - name: TotalAmount
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: stg_employees
+    description: This model describes employees data
+    columns:
+    - name: EmployeeID
+    - name: FirstName
+    - name: LastName
+    - name: DepartmentID
+  
+  - name: stg_departments
+    description: This model describes departments data
+    columns:
+    - name: DepartmentID
+    - name: DepartmentName
+
+  - name: join_all_tables
+    description: This model joins departments, orders and employees table
+    columns:
+    - name: FirstName
+    - name: LastName
+    - name: DepartmentName
+    - name: OrderDate
+    - name: TotalAmount
+
+
+
