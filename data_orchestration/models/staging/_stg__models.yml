@@ -24,14 +24,6 @@ models:
     - name: DepartmentID
     - name: DepartmentName
 
-  - name: join_all_tables
-    description: This model joins departments, orders and employees table
-    columns:
-    - name: FirstName
-    - name: LastName
-    - name: DepartmentName
-    - name: OrderDate
-    - name: TotalAmount
 
 
 
