@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: users
+    columns:
+      - name: user_id
+        tests:
+          - unique
+      - name: username
+      - name: email
+        tests:
+          - not_null
+
+  # Add more models for schema_one if needed
+
+
+version: 2
+
+models:
+  - name: orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+      - name: order_date
+      - name: total_amount
+
+  # Add more models for schema_two if needed
+
+
+version: 2
+
+...
+
+sources:
+  - name: schema_one
+    tables: "schema_one.yml"
+  - name: schema_two
+    tables: "schema_two.yml"
+
+
+-- In your dbt model
+select *
+from {{ source('schema_one', 'users') }}
+where ...
+
+
